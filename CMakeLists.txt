@@ -11,5 +11,12 @@ target_sources(lucas
     $<INSTALL_INTERFACE:include/lucas.h>
 )
 
+
 add_executable(fib fib.cc)
 target_link_libraries(fib lucas)
+target_include_directories(fib
+  PUBLIC
+    $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>
+    $<INSTALL_INTERFACE:include>
+)
