@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.1)
+project(lucas)
 
 set(default_build_type "Release")
 if(CMAKE_BUILD_TYPE)
