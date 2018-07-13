@@ -33,3 +33,6 @@ target_include_directories(lucas INTERFACE lucas.h)
 
 add_executable(fib fib.cc)
 target_link_libraries(fib lucas)
+
+install(TARGETS lucas EXPORT lucas DESTINATION include)
+#install(EXPORT lucas NAMESPACE lucas_ DESTINATION lib/lucas)
