@@ -28,11 +28,26 @@ set(FIB_COMMON_FLAGS "-Wall -Werror=reorder -Wno-unused-function -pedantic -Wno-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_DEBUG} ${FIB_COMMON_FLAGS}")
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS_DEBUG} ${FIB_COMMON_FLAGS}")
 
+
 add_library(lucas INTERFACE)
-target_include_directories(lucas INTERFACE lucas.h)
+#target_include_directories(lucas INTERFACE lucas.h)
 
 add_executable(fib fib.cc)
 target_link_libraries(fib lucas)
+
+include(GNUInstallDirs)
+install(TARGETS lucas
+  EXPORT LucasTargets
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+install(
+  EXPORT LucasTargets
+  NAMESPACE Lucas::
+  DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/Lucas"
+)
 
 install(TARGETS lucas EXPORT lucas_proj DESTINATION include)
 install(EXPORT lucas_proj NAMESPACE lucas_ DESTINATION lib/lucas)
