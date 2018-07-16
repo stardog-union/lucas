@@ -5,8 +5,13 @@
  */
 template <long p, long q>
 long lucas_first(long n) {
-  long current = 0;
-  long previous = 1;
+  long current = 1;
+  long previous = 0;
+  if (n == 0) {
+    return previous;
+  } else if (n == 1) {
+    return current;
+  }
   for (long i = 1; i < n; ++i) {
     long next = p * current - q * previous;
     previous = current;
@@ -20,8 +25,13 @@ long lucas_first(long n) {
  */
 template <int p, int q>
 long lucas_second(long n) {
-  long current = 2;
-  long previous = p;
+  long current = p;
+  long previous = 2;
+  if (n == 0) {
+    return previous;
+  } else if (n == 1) {
+    return current;
+  }
   for (long i = 1; i < n; ++i) {
     long next = p * current - q * previous;
     previous = current;
