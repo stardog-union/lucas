@@ -10,5 +10,4 @@ http_archive(
         "https://github.com/stardog-union/toolchain/archive/master.zip",
     ],
     strip_prefix = "toolchain-master",
-    sha256 = "d0740cacb99833911baba82041bb4429f9d3182522fe0fd4c131335ac8343891",
 )
