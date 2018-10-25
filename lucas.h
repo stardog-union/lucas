@@ -39,3 +39,16 @@ long lucas_second(long n) {
   }
   return current;
 }
+
+constexpr long(*fib)(long) = &lucas_first<1, -1>;
+constexpr long(*lucas)(long) = &lucas_second<1, -1>;
+constexpr long(*pell)(long) = &lucas_first<2, -1>;
+constexpr long(*pell_lucas)(long) = &lucas_second<2, -1>;
+constexpr long(*jacobsthal)(long) = &lucas_first<1, -2>;
+constexpr long(*jacobsthal_lucas)(long) = &lucas_second<1, -2>;
+constexpr long(*mersenne)(long) = &lucas_first<3, 2>;
+
+/**
+ * Lucas primality test (https://en.wikipedia.org/wiki/Lucas_primality_test). Test if n is prime, based on k loops.
+ */
+bool is_prime_lucas(long n, long k);
