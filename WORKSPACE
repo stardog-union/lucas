@@ -11,7 +11,7 @@ http_archive(
 http_archive(
     name = "toolchain",
     urls = [
-        "https://github.com/stardog-union/toolchain/archive/cross_compile.zip",
+        "https://github.com/stardog-union/toolchain/archive/v1.zip",
     ],
-    strip_prefix = "toolchain-cross_compile",
+    strip_prefix = "toolchain-1",
 )

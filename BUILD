@@ -46,6 +46,19 @@ cc_library(
 )
 
 cc_binary(
+    name = "liblucas.so",
+    deps = [
+        ":lucas",
+    ],
+    defines = PLATFORM_DEFINES,
+    linkshared = True,
+    linkopts = [
+        "-static-libgcc",
+        "-static-libstdc++",
+    ],
+)
+
+cc_binary(
     name = "fib",
     srcs = ["fib.cc"],
     deps = [":lucas"],
