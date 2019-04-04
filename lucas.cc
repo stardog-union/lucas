@@ -74,7 +74,7 @@ bool is_prime_lucas(long n, long k) {
     }
 
     bool flag = true;
-    for (long i = 0; i < factors.size(); ++i) {
+    for (size_t i = 0; i < factors.size(); ++i) {
       if (modulus_exp(a, (n - 1) / factors[i], n) == 1) {
         flag = false;
         break;
