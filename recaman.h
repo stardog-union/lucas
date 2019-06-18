@@ -40,12 +40,6 @@ private:
 public:
   int64_t index() const { return n_; }
 
-#ifndef __cpp_coroutines
-  generator<int64_t> values() {
-    co_yield next();
-  }
-#endif
-
   int64_t next() {
     int64_t next = last_value_ - n_;
     if (next <= 0 || !is_available(next)) {
