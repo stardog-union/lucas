@@ -45,6 +45,14 @@ cc_library(
     defines = PLATFORM_DEFINES,
 )
 
+cc_library(
+    name = "recaman_lib",
+    hdrs = ["recaman.h"],
+    srcs = ["recaman.cc"],
+    linkstatic = 1,
+    defines = PLATFORM_DEFINES,
+)
+
 cc_binary(
     name = "liblucas.so",
     deps = [
@@ -62,5 +70,11 @@ cc_binary(
     name = "fib",
     srcs = ["fib.cc"],
     deps = [":lucas"],
+    defines = PLATFORM_DEFINES,
+)
+
+cc_binary(
+    name = "recaman",
+    deps = [":recaman_lib"],
     defines = PLATFORM_DEFINES,
 )
