@@ -17,8 +17,14 @@ http_archive(
     name = "toolchain",
     urls = [
         "https://github.com/stardog-union/toolchain/archive/%s.zip" % toolchain_version,
-#        "file:///home/james/git/toolchain.tgz",
     ],
     strip_prefix = "toolchain-%s" % toolchain_version,
-#    strip_prefix = "toolchain",
+)
+
+http_archive(
+    name = "toolchain-local",
+    urls = [
+        "file:///home/james/git/toolchain.tgz",
+    ],
+    strip_prefix = "toolchain",
 )

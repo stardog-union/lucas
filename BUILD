@@ -41,8 +41,9 @@ cc_library(
     name = "lucas",
     hdrs = ["lucas.h"],
     srcs = ["lucas.cc"],
-    linkstatic = 1,
     defines = PLATFORM_DEFINES,
+    linkstatic = True,
+    alwayslink = True,
 )
 
 cc_library(
