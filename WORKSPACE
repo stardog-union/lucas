@@ -24,7 +24,7 @@ http_archive(
 http_archive(
     name = "toolchain-local",
     urls = [
-        "file:///home/james/git/toolchain.tgz",
+        "file:../toolchain.tgz",
     ],
     strip_prefix = "toolchain",
 )
