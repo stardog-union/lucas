@@ -1,39 +1,18 @@
 package(default_visibility = ["//visibility:public"])
 
-config_setting(
-    name = "linux",
-    constraint_values = [
-        "@bazel_tools//platforms:linux",
-    ],
-    visibility = ["//visibility:public"],
-)
-
-config_setting(
-    name = "osx",
-    constraint_values = [
-        "@bazel_tools//platforms:osx",
-    ],
-    visibility = ["//visibility:public"],
-)
-
-config_setting(
-    name = "windows",
-    constraint_values = [
-        "@bazel_tools//platforms:windows",
-    ],
-    visibility = ["//visibility:public"],
-)
-
 PLATFORM_DEFINES = select({
-    ":linux": [
+    "@toolchain//:is_target_linux" : [
         "OS_LINUX",
     ],
-    ":osx": [
+
+    "@toolchain//:is_target_osx" : [
         "OS_MACOSX",
     ],
-    ":windows": [
+
+    "@toolchain//:is_target_windows" : [
         "OS_WIN",
     ],
+
     "//conditions:default": [],
 })
 
