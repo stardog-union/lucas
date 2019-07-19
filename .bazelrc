@@ -1,4 +1,4 @@
-build --crosstool_top=@toolchain//cpp:c++14
+# build --crosstool_top=@toolchain//cpp:c++14
 build --platform_suffix=-local
 
 build:linux-osx-cross --compiler=linux-osx-cross
