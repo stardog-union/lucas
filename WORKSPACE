@@ -3,7 +3,7 @@ workspace(name = "lucas")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 com_google_googletest_version = "release-1.8.1"
-toolchain_version = "bazel_0.26"
+toolchain_version = "master"
 
 http_archive(
     name = "com_google_googletest",

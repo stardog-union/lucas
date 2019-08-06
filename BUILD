@@ -1,5 +1,7 @@
 package(default_visibility = ["//visibility:public"])
 
+load("@toolchain//java:jni_header.bzl", "jni_header")
+
 PLATFORM_DEFINES = select({
     "@toolchain//:is_target_linux" : [
         "OS_LINUX",
@@ -57,4 +59,29 @@ cc_binary(
     name = "recaman",
     deps = [":recaman_lib"],
     defines = PLATFORM_DEFINES,
+)
+
+java_binary(
+    name = "mersenne",
+    srcs = ["Mersenne.java"],
+    main_class = "Mersenne",
+    deps = [":libmersenne_jni.so"],
+    jvm_flags = [ "-Djava.library.path=." ],
+)
+
+jni_header(
+    name = "jni_headers",
+    srcs = glob(["*.java"]),
+    output = "lucas_jni.h",
+)
+
+cc_binary(
+    name = "libmersenne_jni.so",
+    srcs = ["mersenne_jni.cc"] + [":jni_headers"],
+    deps = [":lucas"],
+    linkshared = True,
+    linkopts = [
+        "-static-libgcc",
+        "-static-libstdc++",
+    ],
 )
