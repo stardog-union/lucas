@@ -49,6 +49,12 @@ cc_binary(
 )
 
 cc_binary(
+    name = "fib_c_only",
+    srcs = ["fib_c.c"],
+    defines = PLATFORM_DEFINES,
+)
+
+cc_binary(
     name = "fib",
     srcs = ["fib.cc"],
     deps = [":lucas"],
@@ -71,8 +77,7 @@ java_binary(
 
 jni_header(
     name = "jni_headers",
-    srcs = glob(["*.java"]),
-    output = "lucas_jni.h",
+    srcs = ["Mersenne.java"],
 )
 
 cc_binary(
