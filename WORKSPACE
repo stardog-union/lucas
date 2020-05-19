@@ -15,14 +15,14 @@ http_archive(
 
 http_archive(
     name = "toolchain",
-    urls = [
-        "https://github.com/stardog-union/toolchain/archive/%s.zip" % toolchain_version,
-    ],
-    strip_prefix = "toolchain-%s" % toolchain_version,
     # urls = [
-    #     "file:../toolchain.tgz",
+    #     "https://github.com/stardog-union/toolchain/archive/%s.zip" % toolchain_version,
     # ],
-    # strip_prefix = "toolchain",
+    # strip_prefix = "toolchain-%s" % toolchain_version,
+    urls = [
+        "file:../toolchain.tgz",
+    ],
+    strip_prefix = "toolchain",
 )
 
 load("@toolchain//cpp:toolchains.bzl", "cpp_register_toolchains")

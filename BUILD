@@ -35,18 +35,18 @@ cc_library(
     defines = PLATFORM_DEFINES,
 )
 
-cc_binary(
-    name = "liblucas.so",
-    deps = [
-        ":lucas",
-    ],
-    defines = PLATFORM_DEFINES,
-    linkshared = True,
-    linkopts = [
-        "-static-libgcc",
-        "-static-libstdc++",
-    ],
-)
+# cc_binary(
+#     name = "liblucas.so",
+#     deps = [
+#         ":lucas",
+#     ],
+#     defines = PLATFORM_DEFINES,
+#     linkshared = True,
+#     linkopts = [
+#         "-static-libgcc",
+#         "-static-libstdc++",
+#     ],
+# )
 
 cc_binary(
     name = "fib_c_only",
